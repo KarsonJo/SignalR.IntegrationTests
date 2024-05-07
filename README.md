@@ -1,1 +1,2 @@
 # SignalR.IntegrationTests
+Source code for the blog post [ASP.NET Core SignalR configuration and integration testing with WebSocket and authentication](https://www.karsonjo.com/asp-net-core-signalr-config-and-integration-testing-with-websocket-and-authentication/)
