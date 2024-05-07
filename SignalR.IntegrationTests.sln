@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalR.IntegrationTests", "SignalR.IntegrationTests\SignalR.IntegrationTests.csproj", "{BF7CCB57-7B19-4668-838F-A84220F53946}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalR.IntegrationTests.Tests", "SignalR.IntegrationTests.Tests\SignalR.IntegrationTests.Tests.csproj", "{201B22C0-166E-4C04-AEAD-13B6119C1F6D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{74EAE071-B725-433E-9A6C-DCCE9B630CF2}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF7CCB57-7B19-4668-838F-A84220F53946}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF7CCB57-7B19-4668-838F-A84220F53946}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF7CCB57-7B19-4668-838F-A84220F53946}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF7CCB57-7B19-4668-838F-A84220F53946}.Release|Any CPU.Build.0 = Release|Any CPU
+		{201B22C0-166E-4C04-AEAD-13B6119C1F6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{201B22C0-166E-4C04-AEAD-13B6119C1F6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{201B22C0-166E-4C04-AEAD-13B6119C1F6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{201B22C0-166E-4C04-AEAD-13B6119C1F6D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C7976E18-FB6F-482B-9720-3805CE86CA72}
+	EndGlobalSection
+EndGlobal
