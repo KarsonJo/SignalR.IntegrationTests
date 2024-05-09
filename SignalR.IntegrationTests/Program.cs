@@ -12,7 +12,7 @@ builder.Services.AddAuthorizationBuilder()
     .SetDefaultPolicy(new AuthorizationPolicyBuilder()
         .AddAuthenticationSchemes([
             IdentityConstants.ApplicationScheme,
-                IdentityConstants.BearerScheme
+            IdentityConstants.BearerScheme
         ])
         .RequireAuthenticatedUser()
         .Build());
