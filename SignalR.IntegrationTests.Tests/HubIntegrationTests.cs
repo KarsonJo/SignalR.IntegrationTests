@@ -118,7 +118,12 @@ public class HubIntegrationTests(WebAppFactory _factory) : IClassFixture<WebAppF
         var connection = SetupHubConnection("/hubs/chat", token);
 
         string? received = null;
-        connection.On<string>(nameof(IChatClientProxy.ReceiveMessage), (m) => received = m);
+        CancellationTokenSource cts = new();
+        connection.On<string>(nameof(IChatClientProxy.ReceiveMessage), (m) =>
+        {
+            received = m;
+            cts.Cancel();
+        });
 
         await connection.StartAsync();
 
@@ -127,8 +132,8 @@ public class HubIntegrationTests(WebAppFactory _factory) : IClassFixture<WebAppF
 
         // --> Act
         await connection.InvokeAsync(nameof(ChatHub.SendMessage), message);
-        // Wait for messages to be received. You may need to increase the delay if you're running in a slow environment.
-        await Task.Delay(1);
+        // Wait for messages to be received.
+        await CancelableDelay(cts.Token);
 
 
         // --> Assert
@@ -141,4 +146,15 @@ public class HubIntegrationTests(WebAppFactory _factory) : IClassFixture<WebAppF
         await Assert.ThrowsAsync<InvalidOperationException>(
             async () => await SetupHubConnection("/hubs/chat", "123").StartAsync());
     }
+
+    #region Helpers
+    private static async Task CancelableDelay(CancellationToken cancellationToken, int timeoutMilliseconds = 3000)
+    {
+        try
+        {
+            await Task.Delay(timeoutMilliseconds, cancellationToken);
+        }
+        catch (TaskCanceledException) { }
+    }
+    #endregion
 }
