@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -7,8 +8,15 @@ const string HubsPrefix = "/hubs";
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddAuthorization();
-builder.Services.AddAuthentication(IdentityConstants.BearerScheme)
+builder.Services.AddAuthorizationBuilder()
+    .SetDefaultPolicy(new AuthorizationPolicyBuilder()
+        .AddAuthenticationSchemes([
+            IdentityConstants.ApplicationScheme,
+                IdentityConstants.BearerScheme
+        ])
+        .RequireAuthenticatedUser()
+        .Build());
+builder.Services.AddAuthentication()
     .AddCookie(IdentityConstants.ApplicationScheme)
     .AddBearerToken(IdentityConstants.BearerScheme, o =>
     {
